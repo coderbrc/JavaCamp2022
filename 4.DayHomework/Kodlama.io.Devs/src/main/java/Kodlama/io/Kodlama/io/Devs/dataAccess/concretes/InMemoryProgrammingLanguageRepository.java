@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import Kodlama.io.Kodlama.io.Devs.dataAccess.abstracts.ProgrammingLanguageRepository;
 import Kodlama.io.Kodlama.io.Devs.entities.concretes.ProgrammingLanguage;
+
 @Repository
 public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguageRepository {
 	List<ProgrammingLanguage> programmingLanguages;
@@ -42,10 +43,12 @@ public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguag
 
 	@Override
 	public void update(ProgrammingLanguage programmingLanguage) {
-		for (ProgrammingLanguage language : programmingLanguages) {
-			if (language.getId() == programmingLanguage.getId()) {
-				language.setName(programmingLanguage.getName());
-			}
-		}
+		ProgrammingLanguage updateToProgrammingLanguage=getById(programmingLanguage.getId());
+		updateToProgrammingLanguage.setName(programmingLanguage.getName());
+//		for (ProgrammingLanguage language : programmingLanguages) {
+//			if (language.getId() == programmingLanguage.getId()) {
+//				language.setName(programmingLanguage.getName());
+//			}
+//		}
 	}
 }
