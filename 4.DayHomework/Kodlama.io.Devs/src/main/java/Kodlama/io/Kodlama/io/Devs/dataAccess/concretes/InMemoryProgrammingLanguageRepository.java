@@ -27,8 +27,8 @@ public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguag
 	}
 
 	@Override
-	public ProgrammingLanguage getById(int Id) {
-		return programmingLanguages.get(Id);
+	public ProgrammingLanguage getById(int id) {
+		return programmingLanguages.get(id);
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguag
 	}
 
 	@Override
-	public void delete(int Id) {
-		programmingLanguages.remove(Id);
+	public void delete(int id) {
+		programmingLanguages.remove(getById(id));
 	}
 
 	@Override

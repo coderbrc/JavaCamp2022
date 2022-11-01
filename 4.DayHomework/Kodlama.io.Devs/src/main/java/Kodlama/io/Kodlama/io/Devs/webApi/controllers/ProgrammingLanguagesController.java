@@ -2,7 +2,12 @@ package Kodlama.io.Kodlama.io.Devs.webApi.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,28 +23,28 @@ public class ProgrammingLanguagesController {
 		this.programmingLanguageService = programmingLanguageService;
 	}
 
-	@GetMapping("/getall")
+	@GetMapping(value = "/languages")
 	public List<ProgrammingLanguage> getAll() {
 		return programmingLanguageService.getAll();
 	}
 
-	@GetMapping("/getbyid")
-	public ProgrammingLanguage getById(int Id) {
-		return programmingLanguageService.getById(Id);
+	@GetMapping(value = "/{id}")
+	public ProgrammingLanguage getById(@PathVariable int id) throws Exception {
+		return programmingLanguageService.getById(id);
 	}
 
-	@GetMapping("/add")
-	public void add(ProgrammingLanguage programmingLanguage) {
+	@PostMapping
+	public void add(@RequestBody ProgrammingLanguage programmingLanguage) throws Exception {
 		programmingLanguageService.add(programmingLanguage);
 	}
 
-	@GetMapping("/delete")
-	public void delete(int Id) {
-		programmingLanguageService.delete(Id);
+	@DeleteMapping(value = "/{id}")
+	public void delete(@PathVariable int id) throws Exception {
+		programmingLanguageService.delete(id);
 	}
 
-	@GetMapping("/update")
-	public void update(ProgrammingLanguage programmingLanguage) {
+	@PutMapping
+	public void update(@RequestBody ProgrammingLanguage programmingLanguage) throws Exception {
 		programmingLanguageService.update(programmingLanguage);
 	}
 }

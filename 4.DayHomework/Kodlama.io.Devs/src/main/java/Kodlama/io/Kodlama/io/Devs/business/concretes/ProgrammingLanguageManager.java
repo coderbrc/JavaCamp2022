@@ -24,8 +24,8 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	}
 
 	@Override
-	public ProgrammingLanguage getById(int Id) {
-		return programmingLanguageRepository.getById(Id);
+	public ProgrammingLanguage getById(int id) {
+		return programmingLanguageRepository.getById(id);
 	}
 
 	@Override
@@ -40,8 +40,8 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	}
 
 	@Override
-	public void delete(int Id) {
-		programmingLanguageRepository.delete(Id);
+	public void delete(int id) {
+		programmingLanguageRepository.delete(id);
 	}
 
 	@Override
